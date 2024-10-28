@@ -2,8 +2,8 @@
 Contributors: binsaifullah
 Tags: tab, tab block, tabs block, tab block, Advanced tabs block, Gutenberg Block, Custom block
 Requires at least: 6.0
-Tested up to: 6.4.1
-Stable tag: 1.2.2
+Tested up to: 6.6.2
+Stable tag: 1.2.3
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,10 @@ No, it is built with 100% Gutenberg Native Components only.
 
 
 == Changelog == 
+
+= 1.2.3 =
+* Compatibility: WordPress 6.6.2
+
 = 1.2.2 =
 * Fixed: Some minor bugs
 
