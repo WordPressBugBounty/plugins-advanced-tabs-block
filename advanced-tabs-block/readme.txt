@@ -1,12 +1,14 @@
 === Advanced Tabs Gutenberg Block ===
 Contributors: binsaifullah
-Tags: tab, tab block, tabs block, tab block, Advanced tabs block, Gutenberg Block, Custom block
+Tags: tab, tab block, tabs block, tab block, Gutenberg Block
 Requires at least: 6.0
-Tested up to: 6.6.2
-Stable tag: 1.2.3
+Tested up to: 6.7.1
+Stable tag: 1.2.4
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Advanced Tabs Block allows to create beautiful tabs in Gutenberg Block Editor. It is built with Gutenberg Native Components.
 
 == Description ==
 
@@ -56,6 +58,9 @@ No, it is built with 100% Gutenberg Native Components only.
 
 
 == Changelog == 
+
+= 1.2.4 =
+* Compatibility: WordPress 6.7.1
 
 = 1.2.3 =
 * Compatibility: WordPress 6.6.2
