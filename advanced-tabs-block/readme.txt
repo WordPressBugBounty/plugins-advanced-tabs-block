@@ -1,14 +1,12 @@
 === Advanced Tabs Gutenberg Block ===
 Contributors: binsaifullah
-Tags: tab, tab block, tabs, block, gutenberg block
+Tags: tab, tab block, tabs block, tab block, Advanced tabs block, Gutenberg Block, Custom block
 Requires at least: 6.0
 Tested up to: 6.8
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-
-Showcase content is tabs style in Gutenberg editor easily.
 
 == Description ==
 
@@ -58,6 +56,9 @@ No, it is built with 100% Gutenberg Native Components only.
 
 
 == Changelog == 
+= 1.2.6 = 
+* Fixed: PHP Fatal Error Issue is fixed 
+
 = 1.2.5 = 
 * Codes are optimized
 * Add accessibility support 

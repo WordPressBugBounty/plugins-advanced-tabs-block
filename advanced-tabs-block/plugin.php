@@ -4,7 +4,7 @@
  * Description:       A custom Gutenberg Block to show content in tabs style.
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Version:           1.2.5
+ * Version:           1.2.6
  * Author:            Zakaria Binsaifullah
  * Author URI:        https://makegutenblock.com
  * License:           GPL-2.0-or-later
