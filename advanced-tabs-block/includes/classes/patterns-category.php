@@ -5,7 +5,11 @@
  * @package AdvancedTabBlocks
  */
 
- if( ! class_exists( 'ATBS_Patterns_Category' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+if ( ! class_exists( 'ATBS_Patterns_Category' ) ) {
 
     class ATBS_Patterns_Category {
 
@@ -25,7 +29,7 @@
             register_block_pattern_category(
                 'atbs-patterns',
                 [
-                    'label' => __( 'Tab Blocks', 'advanced-tab-blocks' ),
+                    'label' => __( 'Tab Blocks', 'advanced-tabs-block' ),
                 ]
             );
          }
@@ -34,4 +38,3 @@
 
  }
 
-    new ATBS_Patterns_Category(); // initialize the class

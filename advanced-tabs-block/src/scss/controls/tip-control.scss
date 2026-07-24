@@ -1,0 +1,15 @@
+.gkits-tip-control {
+    border: 1px solid #007cba;
+    margin-bottom: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0 0 5px 2px rgb(0 124 186 / 12%);
+    p {
+        font-style: italic;
+        margin-bottom: 0;
+        font-size: 12px;
+        line-height: 1.4;
+        color: #007cba;
+    }
+}

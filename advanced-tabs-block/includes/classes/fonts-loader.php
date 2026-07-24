@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
+if ( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
 
     class ATBS_Fonts_Loader {
 
@@ -29,11 +29,11 @@ if( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
          * @param array $block
          * @return void
          */
-        public function font_generator($block) {
-            if (isset($block['attrs']) && is_array($block['attrs'])) {
+        public function font_generator( $block ) {
+            if ( isset( $block['attrs'] ) && is_array( $block['attrs'] ) ) {
                 $attributes = $block['attrs'];
-                foreach ($attributes as $key => $value) {
-                    if (!empty($value) && strpos($key, 'atbs_') === 0 && strpos($key, 'FontFamily') !== false) {
+                foreach ( $attributes as $key => $value ) {
+                    if ( ! empty( $value ) && 0 === strpos( $key, 'atbs_' ) && false !== strpos( $key, 'FontFamily' ) ) {
                         self::$all_fonts[] = $value;
                     }
                 }
@@ -46,11 +46,11 @@ if( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
          * @access public
          */
         public function fonts_loader() {
-            if (is_array(self::$all_fonts) && count(self::$all_fonts) > 0) {
+            if ( is_array( self::$all_fonts ) && count( self::$all_fonts ) > 0 ) {
 
-                $fonts = array_filter(array_unique(self::$all_fonts));
+                $fonts = array_filter( array_unique( self::$all_fonts ) );
 
-                if (!empty($fonts)) {
+                if ( ! empty( $fonts ) ) {
                     $system = array(
                         'Arial',
                         'Tahoma',
@@ -60,26 +60,29 @@ if( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
                         'Trebuchet MS',
                         'Georgia',
                     );
-                    $gfonts = '';
+                    $gfonts      = '';
                     $gfonts_attr = ':100,200,300,400,500,600,700,800,900';
-                    foreach ($fonts as $font) {
-                        if (!in_array($font, $system, true) && !empty($font)) {
-                            $gfonts .= str_replace(' ', '+', trim($font)) . $gfonts_attr . '|';
+                    foreach ( $fonts as $font ) {
+                        if ( ! in_array( $font, $system, true ) && ! empty( $font ) ) {
+                            $gfonts .= str_replace( ' ', '+', trim( $font ) ) . $gfonts_attr . '|';
                         }
                     }
-                    if (!empty($gfonts)) {
-                        $query_args = array(
-                            'family' => $gfonts,
+                    if ( ! empty( $gfonts ) ) {
+                        $url = add_query_arg(
+                            array(
+                                'family'  => rtrim( $gfonts, '|' ),
+                                'display' => 'swap',
+                            ),
+                            'https://fonts.googleapis.com/css'
                         );
                         wp_register_style(
                             'atbs-fonts',
-                            add_query_arg($query_args, '//fonts.googleapis.com/css'),
-                            array()
+                            esc_url( $url ),
+                            array(),
+                            ATBS_VERSION
                         );
-                        wp_enqueue_style('atbs-fonts');
+                        wp_enqueue_style( 'atbs-fonts' );
                     }
-                    // Reset.
-                    $gfonts = '';
                 }
             }
         }
@@ -87,5 +90,4 @@ if( ! class_exists( 'ATBS_Fonts_Loader' ) ) {
     }
 
 }
-
-new ATBS_Fonts_Loader(); // initialize the class 
+ 

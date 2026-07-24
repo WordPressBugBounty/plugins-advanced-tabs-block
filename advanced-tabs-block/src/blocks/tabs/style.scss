@@ -1,0 +1,100 @@
+/*
+* Style Works for both Editor and Frontend
+*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wp-block-atbs-tabs {
+    .tabs-nav {
+        overflow: hidden;
+        z-index: 1;
+    }
+    .tabs-titles {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #81a5ff;
+        .tab-title {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            color: #fff;
+            &.icon_left {
+                flex-direction: row;
+            }
+            &.icon_right {
+                flex-direction: row-reverse;
+            }
+            &.icon_top {
+                flex-direction: column;
+            }
+            &.icon_bottom {
+                flex-direction: column-reverse;
+            }
+            &.active {
+                background-color: #4876e9;
+            }
+
+            .tab-title-media {
+                line-height: 1 !important;
+
+                svg {
+                    width: auto;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    .tabs-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .tabs-content {
+        padding: 15px;
+        box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #eee;
+    }
+
+    .wp-block-atbs-tab {
+        p {
+            margin: 0 0 15px;
+        }
+    }
+
+    .wp-block-atbs-tab {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+// Desktop View
+@media (min-width: 991px) {
+    .wp-block-atbs-tabs {
+        .tabs-titles {
+            flex-direction: row;
+        }
+    }
+}

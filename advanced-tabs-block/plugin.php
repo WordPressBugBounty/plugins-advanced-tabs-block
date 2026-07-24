@@ -1,10 +1,10 @@
 <?php
 /**
- * Plugin Name:       Advanced Tabs Gutenberg Block
+ * Plugin Name:       Advanced Tabs Block
  * Description:       A custom Gutenberg Block to show content in tabs style.
  * Requires at least: 6.0
  * Requires PHP:      7.4
- * Version:           1.2.6
+ * Version:           1.2.7
  * Author:            Zakaria Binsaifullah
  * Author URI:        https://makegutenblock.com
  * License:           GPL-2.0-or-later
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Blocks Final Class
  */
 
- if( ! class_exists( 'ATBS_BLOCKS' ) ) {
+ if ( ! class_exists( 'ATBS_BLOCKS' ) ) {
 
 	final class ATBS_BLOCKS {
 
@@ -41,9 +41,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @return void
 		 */
 		private function define_constants() {
-			define( 'ATBS_VERSION', '1.2.5' );
-			define( 'ATBS_URL', plugin_dir_url( __FILE__ ) );	
-			define('ATBS_DIR_PATH', plugin_dir_path(__FILE__));
+			define( 'ATBS_VERSION', '1.2.7' );
+			define( 'ATBS_URL', plugin_dir_url( __FILE__ ) );
+			define( 'ATBS_DIR_PATH', plugin_dir_path( __FILE__ ) );
 			define( 'ATBS_DIR', __DIR__ );
 		}
 
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 * @return void
 		 */
 		private function includes() {
-			require_once ATBS_DIR . '/includes/loader.php';
+			require_once ATBS_DIR . '/includes/Loader.php';
 		}
 
 		/**

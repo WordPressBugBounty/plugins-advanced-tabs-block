@@ -1,10 +1,14 @@
 <?php
 /**
- * Patterns List 
+ * Patterns List
  * @package AdvancedTabBlocks
  */
 
- return apply_filters( 'atbs_patterns_list', [
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+return apply_filters( 'atbs_patterns_list', [
     [
         'title'      => __( 'Simple Tab', 'advanced-tabs-block' ),
         'name'       => 'atbs/simple-tab',

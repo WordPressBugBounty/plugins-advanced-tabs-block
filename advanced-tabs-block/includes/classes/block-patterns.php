@@ -6,7 +6,11 @@
  * @package AdvancedTabBlocks
  */
 
- if( ! class_exists( 'ATBS_Register_Patterns' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
+if ( ! class_exists( 'ATBS_Register_Patterns' ) ) {
 
     class ATBS_Register_Patterns {
 
@@ -28,7 +32,7 @@
             if( file_exists( $patterns_list ) ) {
                 $patterns = require_once $patterns_list;
 
-                if( ! empty( $patterns ) ) {
+                if ( ! empty( $patterns ) ) {
                     foreach( $patterns as $pattern ) {
                         register_block_pattern(
                             $pattern['name'],
@@ -46,4 +50,3 @@
     }
 
  }
-    new ATBS_Register_Patterns(); // initialize the class

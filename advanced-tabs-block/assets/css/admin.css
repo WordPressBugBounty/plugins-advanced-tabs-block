@@ -13,49 +13,17 @@ body {
     text-align: center;
 }
 
-.plugin__head_container,
-.tabs__titles {
+.plugin__head_container {
     background: #f2f7f9;
 }
 
-.tabs__titles {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-p.tab__title {
-    padding: 10px 15px;
-    margin: 0;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #f2f7f9;
-    border-bottom: 0;
-}
-
-p.tab__title.active {
-    background: #fff;
-    border-color: #f3f3f3;
-}
-
-.tabs__panels {
+.support__panel {
+    max-width: 900px;
+    margin: 0 auto;
     padding: 30px 0;
 }
 
-.tab__panel {
-    display: none;
-}
-
-.tab__panel.active {
-    display: block;
-}
-
-.tabs__container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Support Tab Content */
+/* Support Content */
 .tab__panel_flex {
     display: flex;
     align-items: flex-start;
@@ -138,74 +106,4 @@ a.available__link.mail {
     background: #d93025;
     color: #fff;
     border-color: #d93025;
-}
-
-/* Changle Logs */
-.change__log_head {
-    text-align: center;
-}
-
-.change__notes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0 50px;
-}
-
-.single__note {
-    margin: 0 10px;
-}
-
-span.change__note {
-    padding: 5px;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    display: inline-block;
-    line-height: 13px;
-    margin-right: 3px;
-    text-align: center;
-}
-span.info.change__note {
-    background: #353535;
-    color: #fff;
-}
-span.feature {
-    background: #04790a;
-    color: #fff;
-}
-
-span.update.change__note {
-    background: #4673b9;
-    color: #fff;
-}
-
-span.fixing.change__note {
-    background: #e1a300;
-    color: #fff;
-}
-
-.plugin__info {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eaeaea;
-}
-
-span.log__version {
-    display: inline-block;
-    color: #00882b;
-    margin-right: 10px;
-    font-weight: 700;
-}
-
-span.log__date {
-    color: #afafaf;
-}
-
-.single__log {
-    margin-bottom: 30px;
-}
-
-.log__description {
-    margin-bottom: 10px;
 }

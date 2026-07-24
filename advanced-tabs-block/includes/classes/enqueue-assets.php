@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
+if ( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
 
     class ATBS_Enqueue_Assets {
 
@@ -17,7 +17,7 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
          * @return void
          */
         public function __construct() {
-            // generate dynaamic style
+            // generate dynamic style
             add_filter( 'render_block', [ $this, 'generate_dynamic_style' ], 10, 2 );
             // enqueue editor assets
             add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_editor_assets' ] );
@@ -29,11 +29,11 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
          * Enqueue Block Assets
          * @return void
          */
-        public function enqueue_block_assets(){
-            // bootstrap icons 
+        public function enqueue_block_assets() {
+            // bootstrap icons
             wp_enqueue_style(
                 'atbs-blocks-bootstrap-icons',
-                ATBS_URL . './assets/css/bootstrap-icons.min.css',
+                ATBS_URL . 'assets/css/bootstrap-icons.min.css',
                 [],
                 ATBS_VERSION
             );
@@ -43,11 +43,18 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
          * Enqueue Editor Assets
          * @return void
          */
-        public function enqueue_editor_assets(){
-            $atbs_dependency_file = include_once ATBS_DIR_PATH . './build/global/global.asset.php';
+        public function enqueue_editor_assets() {
+            $asset_file = ATBS_DIR_PATH . 'build/global/global.asset.php';
+
+            if ( ! file_exists( $asset_file ) ) {
+                return;
+            }
+
+            $atbs_dependency_file = include $asset_file;
+
             wp_enqueue_script(
                 'atbs-blocks-global-js',
-                ATBS_URL . './build/global/global.js',
+                ATBS_URL . 'build/global/global.js',
                 $atbs_dependency_file['dependencies'],
                 $atbs_dependency_file['version'],
                 true
@@ -55,7 +62,7 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
 
             wp_enqueue_style(
                 'atbs-blocks-controls-css',
-                ATBS_URL . './build/global/global.css',
+                ATBS_URL . 'build/global/global.css',
                 [],
                 ATBS_VERSION
             );
@@ -63,23 +70,29 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
 
         /**
          * Register Dynamic Style
+         * @param string $block_content
+         * @param array  $block
+         * @return string
          */
-        function generate_dynamic_style($block_content, $block) {
-            if (isset($block['blockName']) && str_contains($block['blockName'], 'atbs/')) {
+        public function generate_dynamic_style( $block_content, $block ) {
+            if ( isset( $block['blockName'] ) && str_contains( $block['blockName'], 'atbs/' ) ) {
                 do_action( 'atbs_render_block', $block );
-                if (isset($block['attrs']['blockStyle'])) {
-                    $style = $block['attrs']['blockStyle'];
+                if ( isset( $block['attrs']['blockStyle'] ) ) {
+                    $style  = $block['attrs']['blockStyle'];
                     $handle = isset( $block['attrs']['uniqueId'] ) ? $block['attrs']['uniqueId'] : 'atbs';
                     // convert style array to string
-                    if ( is_array($style) ) {
-                        $style = implode(' ', $style);
+                    if ( is_array( $style ) ) {
+                        $style = implode( ' ', $style );
                     }
+                    // strip any tags to prevent breaking out of the style context
+                    $style = wp_strip_all_tags( $style );
                     // minify style to remove extra space
                     $style = preg_replace( '/\s+/', ' ', $style );
-                    wp_register_style(
-                        $handle,
-                        false
-                    );
+                    if ( '' === trim( $style ) ) {
+                        return $block_content;
+                    }
+                    $handle = sanitize_key( $handle );
+                    wp_register_style( $handle, false, array(), ATBS_VERSION );
                     wp_enqueue_style( $handle );
                     wp_add_inline_style( $handle, $style );
                 }
@@ -90,5 +103,3 @@ if( ! class_exists( 'ATBS_Enqueue_Assets' ) ) {
     }
 
 }
-
-new ATBS_Enqueue_Assets(); // initialize the class
