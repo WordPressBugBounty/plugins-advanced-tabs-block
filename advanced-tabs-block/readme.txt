@@ -2,8 +2,8 @@
 Contributors: binsaifullah
 Tags: tabs, tab block, gutenberg tabs, responsive tabs, tabbed content
 Requires at least: 6.0
-Tested up to: 7.0
-Stable tag: 1.2.7
+Tested up to: 7.1
+Stable tag: 1.3.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -65,6 +65,14 @@ No. The block is lightweight and loads its assets only on pages where the block 
 == Screenshots ==
 
 == Changelog ==
+
+= 1.3.0 =
+* Improved: Responsive controls are now synced with the editor preview window (Desktop/Tablet/Mobile)
+* Improved: Link/unlink values now stay in sync in the box and border controls
+* Improved: Optimized the box and border control code
+* Fixed: Control input and button height mismatch
+* Changed: Newly added tabs now start with "Show Icon" disabled
+
 = 1.2.7 =
 * Optimized code and fixed a PHP error
 
@@ -107,6 +115,9 @@ No. The block is lightweight and loads its assets only on pages where the block 
 * Initial release
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+Editor preview sync, link/unlink fixes, and code optimization. Update recommended.
 
 = 1.2.7 =
 Code optimization and a PHP error fix. Update recommended.
